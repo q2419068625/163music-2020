@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理页面</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/default.css">
+</head>
+
+<body>
+    <div class="page">
+        <aside>
+            <div class="btn btn-primary btn-lg btn-block  newSong">
+
+            </div>
+            <div id="songList-container">
+
+            </div>
+            <div class="uploadArea">
+                <div id="uploadContainer" class="draggable">
+                    <span id="uploadButton" class="clickable">点击或拖曳文件</span>
+                    <p>文件大小不能超过30MB</p>
+                </div>
+            </div>
+        </aside>
+        <main>
+        </main>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+    <script src="./js/initializers/av.js"></script>
+    <script src="../node_modules/plupload/js/moxie.min.js"></script>
+    <script src="../node_modules/plupload/js/plupload.min.js"></script>
+    <script src="../node_modules/qiniu-js/dist/qiniu.min.js"></script>
+    <script src="./js/eventHub.js"></script>
+    <script src="./js/new-song.js"></script>
+    <script src="./js/song-list.js"></script>
+    <script src="./js/song-from.js"></script>
+    <script src="./js/upload-song.js"></script>
+</body>
+
+</html>
