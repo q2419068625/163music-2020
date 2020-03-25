@@ -60,7 +60,6 @@
                     },
                     'UploadProgress': function(up, file) {
                         // 每个文件上传时,处理相关的事情
-                        $('#uploadStatus').text('上传中')
                     },
                     'FileUploaded': function(up, file, info) {
                         // 每个文件上传成功后,处理相关的事情
@@ -75,7 +74,7 @@
                         var domain = up.getOption('domain');
                         var response = JSON.parse(info.response);
                         var sourceLink = domain + '/' + encodeURIComponent(response.key); //获取上传成功后的文件的Url
-                        window.eventHub.emit('upload', {
+                        window.eventHub.emit('new', {
                             url: sourceLink,
                             name: response.key
                         })
