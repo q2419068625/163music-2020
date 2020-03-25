@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>网易云音乐</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="./src/reset.css">
     <link rel="stylesheet" href="./css/index.css">
 </head>
 
@@ -18,15 +17,15 @@
                 </div>
                 <a href="#">下载APP</a>
             </section>
-            <section class="globalTabs">
+            <section class="globalTabs" id="tabs">
                 <ol class="tabs-nav">
-                    <li class=active>
+                    <li class="active" data-tab-name="page-1">
                         <div class="text"> 推荐音乐 </div>
                     </li>
-                    <li>
+                    <li data-tab-name="page-2">
                         <div class="text">热歌榜</div>
                     </li>
-                    <li>
+                    <li data-tab-name="page-3">
                         <div class="text">搜索</div>
                     </li>
                 </ol>
@@ -109,15 +108,10 @@
     <script src="./js/initializers/av.js"></script>
     <script src="./js/index/tabs.js"></script>
     <script src="./js/admin/eventHub.js"></script>
+    <script src="./js/index/page-1.js"></script>
+    <script src="./js/index/page-2.js"></script>
+    <script src="./js/index/page-3.js"></script>
 
-    <script>
-        requirejs.config({
-            paths: {
-                jquery: '../vendors/jquery.min',
-                av: '../vendors/av-min'
-            }
-        });
-    </script>
 </body>
 
 </html>
