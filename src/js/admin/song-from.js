@@ -25,6 +25,12 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="lastname"  class="col-sm-1 control-label">封面地址</label>
+            <div class="col-sm-2">
+                <input type="text" name="cover" class="form-control" id="lastname" value="__cover__">
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-sm-offset-1 col-sm-2">
                 <button type="submit" class="btn btn-default">保存</button>
             </div>
@@ -32,7 +38,7 @@
     </form>
         `,
         render(data = {}) {
-            let placeholders = ['name', 'singer', 'url', 'id'];
+            let placeholders = ['name', 'singer', 'url', 'id', 'cover'];
             let html = this.template;
             placeholders.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '');
@@ -54,7 +60,8 @@
             name: '',
             singer: '',
             url: '',
-            id: ''
+            id: '',
+            cover: ''
         },
         create(data) {
             var Song = AV.Object.extend('Song');
@@ -62,6 +69,7 @@
             song.set('name', data.name);
             song.set('singer', data.singer);
             song.set('url', data.url);
+            song.set('cover', data.cover);
             return song.save().then((newSong) => {
                 let { id, attributes } = newSong;
                 Object.assign(this.data, { id, ...attributes })
@@ -74,6 +82,7 @@
             song.set('name', data.name);
             song.set('singer', data.singer);
             song.set('url', data.url);
+            song.set('cover', data.cover);
             return song.save().then((response) => {
                 alert('更新成功')
                 Object.assign(this.data, data)
@@ -98,7 +107,8 @@
                         naem: '',
                         url: '',
                         id: '',
-                        singer: ''
+                        singer: '',
+                        cover: ''
                     }
                 } else {
                     Object.assign(this.model.data, data)
@@ -108,7 +118,7 @@
 
         },
         create() {
-            let needs = 'name singer url'.split(' ');
+            let needs = 'name singer url cover'.split(' ');
             let data = {};
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val();
@@ -121,7 +131,7 @@
             })
         },
         update() {
-            let needs = 'name singer url'.split(' ');
+            let needs = 'name singer url cover'.split(' ');
             let data = {};
             needs.map((string) => {
                 data[string] = this.view.$el.find(`[name="${string}"]`).val();
